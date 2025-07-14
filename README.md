@@ -1,5 +1,6 @@
 # RL_STM_manipulation
-RL based automated workflow for stm manipulation
+RL based automated workflow for stm manipulation. Here we carry out STM manipulation using a machine learning based workflow which utilizes an RL agent for parameter optimization.
+Further object detection models are used for molecule detection and tracking.
 
 ## Credits
 
