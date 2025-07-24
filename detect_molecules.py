@@ -2,7 +2,7 @@
 """
 Created on Tue May 14 11:52:44 2024
 
-@author: Administrator
+@author: Ganesh Narasimha
 """
 
 import stmpy
@@ -231,6 +231,12 @@ def read_label_log(log_file) -> tuple[list, list]:
 
     """
     Reads the label log file and outputs the list of the image-names and the label-paths
+
+    i/p:
+        log_file: path of the log file
+    o/p:
+        images: list of image names
+        labels: list of label paths
     """
 
     f = open(log_file, "r")
@@ -275,8 +281,15 @@ def get_missing_images(ls1, ls2) -> list:
     """
     Compares lists and outputs the set of missing elements that are present in ls1 and not in ls2
     ls1 should be the superset
+
+    i/p:
+        ls1: list of images
+        ls2: list of images
+    o/p:
+        m_ls: list of missing images
     """
-    
+
+
     m_ls = []
     for element in ls1:
         if element not in ls2:
@@ -293,6 +306,9 @@ def get_latest_image(dir):
     
     """
     Returns the latest image in the dir depending the highest value of the number_suffix of the filename
+
+    i/p:
+        dir: directory where the images are saved
 
     o/p:
         latest_filename: string

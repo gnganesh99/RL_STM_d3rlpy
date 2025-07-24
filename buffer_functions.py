@@ -1,3 +1,6 @@
+# Author: Ganesh Narasimha
+
+
 import numpy as np
 from env_functions import rescale_array
 
@@ -12,11 +15,21 @@ from d3rlpy.dataset import MDPDataset
 
 
 def save_buffer(buffer, buffer_name):
+    """
+    Saves the buffer to a file
+    Args:
+        buffer: d3rlpy replay buffer
+        buffer_name: path of the buffer file (.h5 type)
+    """
 
     with open(buffer_name, 'w+b') as f:
         buffer.dump(f)
 
+
 def load_buffer(buffer_name):
+    """
+    Loads the buffer from a file
+    """
 
     with open(buffer_name, 'rb') as f:
         buffer = ReplayBuffer.load(f, d3rlpy.dataset.InfiniteBuffer())
@@ -25,6 +38,13 @@ def load_buffer(buffer_name):
 
 def append_buffer(buffer_main, buffer_next):
 
+    """
+    Appends the next buffer to the main buffer
+    Args:
+        buffer_main: d3rlpy replay buffer
+        buffer_next: d3rlpy replay buffer
+    """
+
     for episode in buffer_next.episodes:
 
         buffer_main.append_episode(episode)
@@ -32,6 +52,11 @@ def append_buffer(buffer_main, buffer_next):
     return buffer_main
 
 def buffer_len(buffer):
+    """
+    Returns the length (number of episodes) of the buffer
+    Args:
+        buffer: d3rlpy replay buffer
+    """
 
     length = len(buffer.episodes)
 

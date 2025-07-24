@@ -2,7 +2,9 @@
 """
 Created on Tue Oct  1 10:25:30 2024
 
-@author: Administrator
+@author: Ganesh Narasimha
+
+This code is used to display the results of the manipulation experiment at every iteration.
 """
 
 import os
@@ -17,6 +19,10 @@ from IPython.display import clear_output
 
 
 def show_iter_results(expt_dir, iteration, action_params, prev_action_params, start_session, basename, reward, disp):
+
+    """
+    This function displays the results of the manipulation experiment at each iteration and the previous iteration's results.
+    """
 
     if iteration > 1:
         print("Iteration:  ", iteration - 1)
@@ -38,6 +44,10 @@ def show_iter_results(expt_dir, iteration, action_params, prev_action_params, st
 
 def show_iter_image_results(expt_dir, iteration, action_params, prev_action_params, start_session, basename):
     
+    """
+    This function displays the image results of the manipulation experiment at each iteration and the previous iteration's results.
+    """
+
     # Show previous iteration details
     if iteration > 1:
     

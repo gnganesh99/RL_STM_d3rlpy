@@ -20,7 +20,7 @@ from expt_utils import distance, sort_by_order, sort_and_get_indices
 def random_target(size = 1):
 
     """
-    Returns target coordinates [x,y] in range [0-1]
+    Returns random target coordinates [x,y] in range [0-1]
 
     Args:
         size: default (size = 1), determines the no of coordinates per target state.
@@ -52,7 +52,10 @@ def custom_target(file_name):
     """
     Reads and outputs the target coordinates saved in a file.
     I/p:
-        file_name: filename that contains custom target coordinates 
+        file_name: filename/path that contains custom target coordinates 
+
+    O/p:
+        target: 2D array of the coordinates [x, y] corresponding to each target point.
     """
 
     #i_p = r"E:\labView\Ganesh\LV_programs_2018\v5_infinity\Py_Scripts\target_structures"
@@ -81,7 +84,18 @@ def custom_target(file_name):
 
 
 def clear_region(n_objects = 12, margin = 0.3):
+    
+    """
+    This function generates a set of target coordinates to clear the central region by assigning targets at the edges of the frame.
+    Generates target points in a grid-like pattern around the edges of the frame, ensuring that the targets are spaced out evenly.
 
+    Args:
+        n_objects: number of target coordinates to be generated, default is 12.
+        margin: margin from the edges of the frame, default is 0.3.
+    O/p:
+        target_points: 2D array of the coordinates [x, y] corresponding to each target point.
+        
+    """
     
     n_sides = int(np.ceil((n_objects+4)//4))
     
@@ -107,6 +121,23 @@ def clear_region(n_objects = 12, margin = 0.3):
 
 def clear_region_levels(n_objects, limit = 7, margin = 0.1):
     
+    """
+    Generates target coordinates to clear the central region by assigning targets at the edges of the frame.
+    This is done in concentric levels, where each level has a decreasing number of targets, starting from the outermost edge and moving inward.
+
+    Args:
+        n_objects: number of target coordinates to be generated, default is 12.
+        limit: maximum number of targets in the first level, default is 7/edge. 
+                The limit reduces successively in each level.
+        margin: margin from the edges of the frame, default is 0.1.
+
+    O/p:
+        target_points: 2D array of the coordinates [x, y] corresponding to each target point.
+
+    """
+
+
+
     n_left = n_objects
 
     level = 0
@@ -151,6 +182,18 @@ def clear_region_levels(n_objects, limit = 7, margin = 0.1):
 
 
 def sort_target_to_center(X_target, to_center = True):
+
+    """
+    Sorts the target coordinates based on their distance from the center of the frame.
+
+    Args:
+        X_target: 2D array of target coordinates [x, y].
+        to_center: boolean indicating whether to sort towards the center or away from it (default is True).
+
+    O/p:
+        sorted_target: 2D array of the sorted coordinates [x, y].
+
+    """
     
     center_coord = np.asarray([0.5, 0.5])
     dist_arr = []
@@ -174,13 +217,39 @@ def sort_target_to_center(X_target, to_center = True):
 
 
 def compute_coordinates(distance, theta):
+    """
+    Computes the x and y coordinates based on the distance and angle (theta).
+
+    Args:
+        distance: The distance from the origin.
+        theta: The angle in radians.
+
+    O/p:
+        x: The x coordinate.
+        y: The y coordinate.
+    """
+
 
     x = distance * np.cos(theta)
     y = distance * np.sin(theta)
 
     return x, y
 
+
+
 def translate(points, offset):
+    """
+    Translates a set of points by a given offset.
+    Args:
+        points: 2D array of points to be translated, where each point is represented as
+        offset: 1D array representing the translation offset [dx, dy].
+    
+    O/p:
+        new_points: 2D array of translated points, where each point is represented as [x', y'].
+    
+    """
+
+
     new_points = []
 
     for point in points:
@@ -190,7 +259,25 @@ def translate(points, offset):
     new_points = np.asarray(new_points)
     return new_points
 
+
+
+
+
 def hexagon_set(point, a):
+
+    """
+    Generates the coordinates of a hexagon centered at a given point with a specified side length.
+    Args:
+        point: 2D array representing the center of the hexagon [x, y].
+        a: The length of each side of the hexagon.
+
+    O/p:
+        hex_points: 2D array of the coordinates of the hexagon vertices, including the center point.
+
+    """
+
+
+
     angles = np.radians([0, 60, 120, 180, 240, 300])
     
     hex_points = []
@@ -206,7 +293,27 @@ def hexagon_set(point, a):
     return hex_points
 
 
+
+
+
+
 def hexagon_ring_points(rings = 1, a = 1, center = [0, 0], frame_size = 1):
+
+    """
+    Generates the coordinates of a hexagonal rings centered at a given point with a specified side length.
+    The function creates a series of hexagons, each one larger than the last, to form a ring pattern.
+
+    Args:
+        rings: Number of hexagonal rings to generate (default is 1).
+        a: The length of each side of the hexagon (default is 1).
+        center: 2D array representing the center of the hexagonal rings [x, y] (default is [0, 0]).
+        frame_size: The size of the frame within which the hexagons are generated (default is 1).
+
+    O/p:
+        all_hex_points: 2D array of the coordinates of the hexagonal rings, including the center point.
+        
+
+    """
 
     seed_point = [0, 0]
 

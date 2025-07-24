@@ -23,6 +23,26 @@ programs to compute reward functions
 
 
 def get_state_reward_vector(corrected_initial, prev_inital, prev_final, d0_vec, X_current, X_target, obj_idx, tolerance = 0.05):
+
+    """
+    Computes the reward vector for the current state of the objects in the manipulation experiment.
+    Inputs:
+        corrected_initial: 2D array of the initial coordinates of the objects after correction
+        prev_inital: 2D array of the previous initial coordinates of the objects
+        prev_final: 2D array of the previous final coordinates of the objects
+        d0_vec: 1D array of the initial distances between the objects and their targets
+        X_current: 2D array of the current coordinates of the objects
+        X_target: 2D array of the target coordinates of the objects
+        obj_idx: index of the object for which the reward is being computed
+        tolerance: tolerance value for determining if an object is close enough to its target
+
+    Outputs:
+        reward_vector: 1D array of the rewards for each object
+        delta_d: change in distance from the previous state to the current state
+        complete_vector: 1D bool array indicating if each object is close enough to its target
+        d_space: distance space for the current object
+
+    """
     
     _, d_current_vector = euclidean_distance(X_current[:, 0:2], X_target)
 
@@ -67,6 +87,25 @@ def get_state_reward_vector(corrected_initial, prev_inital, prev_final, d0_vec, 
 
 def get_state_reward(current_initial, current_final, prev_inital, prev_final, d_initial, tolerance = 0.03):
 
+    """
+    Computes the reward for the current state of the objects in the manipulation experiment.
+
+    Inputs:
+        current_initial: 2D array of the current initial coordinates of the objects
+        current_final: 2D array of the current final coordinates of the objects
+        prev_inital: 2D array of the previous initial coordinates of the objects
+        prev_final: 2D array of the previous final coordinates of the objects
+        d_initial: initial distance between the current object and the target
+        tolerance: tolerance value for determining if an object is close enough to its target
+
+    Outputs:
+        reward: scalar value representing the reward for the current state
+        delta_d: change in distance from the previous state to the current state    
+        done: boolean value indicating if the current state is complete (i.e., all objects are close enough to their targets)
+
+    """    
+
+
     d_prev, _ =  euclidean_distance(prev_inital[:, 0:2], prev_final)
     d_current, _ = euclidean_distance(current_initial, current_final)
 
@@ -88,6 +127,24 @@ def get_state_reward(current_initial, current_final, prev_inital, prev_final, d_
 
 def get_displacement_reward(current_initial, current_final, prev_inital, prev_final, d_initial, tolerance = 0.05):
 
+    """
+    Computes the reward based on the displacement of the molecule in the manipulation experiment.
+
+    Inputs:
+        current_initial: 2D array of the current initial coordinates of the objects
+        current_final: 2D array of the current final coordinates of the objects
+        prev_inital: 2D array of the previous initial coordinates of the objects
+        prev_final: 2D array of the previous final coordinates of the objects
+        d_initial: initial distance between the current object and the target
+        tolerance: tolerance value for determining if an object is close enough to its target
+
+    Outputs:
+        reward: scalar value representing the reward for the current state
+        delta_d: change in distance from the previous state to the current state
+        done: boolean value indicating if the current state is complete (i.e., all objects are close enough to their targets)
+
+    """
+
     d_prev, _ =  euclidean_distance(prev_inital[:, 0:2], prev_final)
     d_current, _ = euclidean_distance(current_initial, current_final)
 
@@ -108,6 +165,17 @@ def get_displacement_reward(current_initial, current_final, prev_inital, prev_fi
 
 # Reward based on distance.
 def euclidean_reward(x_current, x_target, frame = 2):
+    """
+    Computes the Euclidean reward (1- distance/frame) based on the current and target positions.
+    Inputs:
+        x_current: 1D array of the current coordinates [x, y]
+        x_target: 1D array of the target coordinates [x, y]
+        frame: scalar value representing the scan frame size (default is 2)
+
+    Outputs:
+        reward: scalar value representing the Euclidean reward normalized by the frame size
+
+    """
     x = np.array([x_current[0], x_target[0]])
     y = np.array([x_current[1], x_target[1]])
 
