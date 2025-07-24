@@ -23,7 +23,7 @@ This project implements an automated STM (Scanning Tunneling Microscopy) manipul
 
 - **`drift_estimation.py`** - Handles drift correction algorithms to compensate for thermal and mechanical drift during long manipulation sequences.
 
-- **`nanonis_TCP.py`** - Provides TCP communication interface for controlling the Nanonis SPM system programmatically.
+- **`nanonis_TCP.py`** - Provides TCP communication interface for controlling the Nanonis SPM system programmatically. This requires the [nanonisTCP](https://pypi.org/project/nanonisTCP/) package to be installed or [cloned](https://github.com/New-Horizons-SPM/nanonisTCP/tree/v1.0.2).
 
 - **`stm_utils.py`** - Utility functions for STM image processing, file handling, and coordinate transformations.
 
