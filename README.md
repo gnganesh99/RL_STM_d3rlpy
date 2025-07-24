@@ -46,4 +46,4 @@ This project implements an automated STM (Scanning Tunneling Microscopy) manipul
 The RL methodology is implemented using the [d3rlpy](https://github.com/takuseno/d3rlpy) codebase, a comprehensive offline reinforcement learning library for Python.
 
 
-The nanonisTCP repository is based on ['Julian Ceddia'/'nanonisTCP'] (https://github.com/New-Horizons-SPM/nanonisTCP/tree/v1.0.2), doi:10.5281/zenodo.7402664
+The nanonisTCP repository is based on ['Julian Ceddia'/'nanonisTCP'](https://github.com/New-Horizons-SPM/nanonisTCP/tree/v1.0.2), doi:10.5281/zenodo.7402664
