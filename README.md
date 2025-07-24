@@ -21,7 +21,7 @@ This project implements an automated STM (Scanning Tunneling Microscopy) manipul
 
 - **`get_reward.py`** - Implements various reward functions to evaluate manipulation success, including displacement-based and state-based reward calculations.
 
-- **`drift_estimation.py`** - Handles drift correction algorithms to compensate for thermal and mechanical drift during long manipulation sequences.
+- **`drift_estimation.py`** - Handles drift correction algorithms to compensate for STM drift during long manipulation sequences.
 
 - **`nanonis_TCP.py`** - Provides TCP communication interface for controlling the Nanonis SPM system programmatically. This requires the [nanonisTCP](https://pypi.org/project/nanonisTCP/) package to be installed or [cloned](https://github.com/New-Horizons-SPM/nanonisTCP/tree/v1.0.2).
 
@@ -37,13 +37,13 @@ This project implements an automated STM (Scanning Tunneling Microscopy) manipul
 
 - **`display_results.py`** - Visualization functions for displaying manipulation results and experimental progress.
 
-- **`buffer_functions.py`** - Buffer management utilities for handling data streams and experimental sequences.
+- **`buffer_functions.py`** - Buffer management utilities for handling d3rlpy based MDP (Markov Decision Process) datasets.
 
 - **`env_functions.py`** - Environment-specific helper functions supporting the RL framework implementation.
 
 ## Credits
 
-The RL methodology is implemented using the [d3rlpy](https://github.com/takuseno/d3rlpy) codebase, a comprehensive offline reinforcement learning library for Python.
+The RL methodology is implemented using the [d3rlpy](https://github.com/takuseno/d3rlpy) codebase, a reinforcement learning library for Python used for offline and online training.
 
 
 The nanonisTCP repository is based on ['Julian Ceddia'/'nanonisTCP'](https://github.com/New-Horizons-SPM/nanonisTCP/tree/v1.0.2), doi:10.5281/zenodo.7402664
