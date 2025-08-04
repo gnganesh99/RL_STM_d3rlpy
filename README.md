@@ -1,6 +1,6 @@
 # RL_STM_manipulation
 
-RL based automated workflow for STM manipulation. Here we carry out STM manipulation using a machine learning based workflow which utilizes an RL agent for parameter optimization. The workflow combines YOLO based object detection models for detection of carbon monoxide (CO) molecules and reinforcement learning (RL) algorithms to automate the manipulation process.
+RL based automated workflow for scanning tunneling microscopy (STM) based manipulation. Here we carry out STM manipulation using a machine learning based workflow which utilizes an RL agent for parameter optimization. The workflow combines YOLO based object detection models for detection of carbon monoxide (CO) molecules and reinforcement learning (RL) algorithms to automate the manipulation process.
 
 ## Overview
 
