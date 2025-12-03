@@ -25,13 +25,22 @@ for episode in episodes:
     actions = episode.actions
     rewards = episode.rewards
     terminated = episode.terminated
-{content: }
+```
 
 
 Further documentation regaring MPDDataset can be found in the d3rlpy documantation: https://d3rlpy.readthedocs.io/en/v0.80/references/dataset.html
 
-<p> Further documentation regarding <code>MDPDataset</code> can be found in the d3rlpy documentation:<br> <a href="https://d3rlpy.readthedocs.io/en/v0.80/references/dataset.html"> https://d3rlpy.readthedocs.io/en/v0.80/references/dataset.html </a> </p> <h3>2. <code>deque_terminated_buffer_all.h5</code></h3> <p> This file contains the deque-based equivalent of the same data.<br> The data are stored in the sequence: </p> <pre> states, actions, next_states, rewards, dones </pre>
+<p> Further documentation regarding <code>MDPDataset</code> can be found in the d3rlpy documentation:<br> <a href="https://d3rlpy.readthedocs.io/en/v0.80/references/dataset.html"> https://d3rlpy.readthedocs.io/en/v0.80/references/dataset.html </a> </p> 
 
+
+
+
+<h3>2. <code>deque_terminated_buffer_all.h5</code></h3> <p> This file contains the deque-based equivalent of the same data.<br> The data are stored in the sequence: </p> <pre> states, actions, next_states, rewards, dones </pre>
+
+
+
+<h3>1. <code>deque_terminated_buffer_all.h5</code></h3> contains the deque equivalent of the same data. 
+Here is the data is indicated in the sequence: states, actions, next_states, rewards, dones.
 
 2. "deque_terminated_buffer_all.h5" contains the deque equivalent of the same data. 
 Here is the data is indicated in the sequence: states, actions, next_states, rewards, dones.
@@ -59,7 +68,5 @@ from d3rlpy.dataset import ReplayBuffer
 Further documentation regaring MPDDataset can be found in the d3rlpy documantation: https://d3rlpy.readthedocs.io/en/v0.80/references/dataset.html
 
 
-2. "deque_terminated_buffer_all.h5" contains the deque equivalent of the same data. 
-Here is the data is indicated in the sequence: states, actions, next_states, rewards, dones.
 
 
