@@ -10,7 +10,7 @@ observations, actions, rewards, and terminated flags.
 
 <p><b>How to load the dataset:</b></p>
 
-'''python
+```python
 from d3rlpy.dataset import MDPDataset
 from d3rlpy.dataset import ReplayBuffer
 
@@ -26,6 +26,7 @@ for episode in episodes:
     rewards = episode.rewards
     terminated = episode.terminated
 {content: }
+
 
 Further documentation regaring MPDDataset can be found in the d3rlpy documantation: https://d3rlpy.readthedocs.io/en/v0.80/references/dataset.html
 
