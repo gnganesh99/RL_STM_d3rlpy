@@ -33,7 +33,7 @@ for episode in episodes:
 
 
 
-<h3>2. <code>deque_terminated_buffer_all.h5</code></h3> <p> This file contains the deque-based equivalent of the same data.<br> The data are stored in the sequence: </p> <pre> states, actions, next_states, rewards, dones </pre>
+<h3>2. <code>deque_terminated_buffer_all.h5</code></h3> <p> This file contains the deque-equivalent of the same data.<br> The data are stored in the sequence: </p> <pre> states, actions, next_states, rewards, dones </pre>
 
 
 
